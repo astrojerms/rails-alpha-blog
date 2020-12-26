@@ -18,6 +18,8 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(article_params)
+    #Hard code user ID until authentication is added - to be removed
+    @article.user = User.first    
     if @article.save
       flash[:notice] = "Article was created successfully."
       redirect_to @article
